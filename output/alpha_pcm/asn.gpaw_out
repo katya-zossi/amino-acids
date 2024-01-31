@@ -1,0 +1,1571 @@
+
+  ___ ___ ___ _ _ _  
+ |   |   |_  | | | | 
+ | | | | | . | | | | 
+ |__ |  _|___|_____|  23.9.2b1
+ |___|_|             
+
+User:   fr_ez1021@n1615
+Date:   Fri Oct  6 12:50:35 2023
+Arch:   x86_64
+Pid:    3163470
+CWD:    /lustre/home/fr/fr_fr/fr_ez1021/sims/amino_acids_publish/scripts
+Python: 3.8.3
+gpaw:   /home/fr/fr_fr/fr_ez1021/source/origin/gpaw/gpaw (f94a1458af)
+_gpaw:  /home/fr/fr_fr/fr_ez1021/source/origin/gpaw/build/lib.linux-x86_64-3.8/
+        _gpaw.cpython-38-x86_64-linux-gnu.so (d6c5f22bb1)
+ase:    /home/fr/fr_fr/fr_ez1021/source/origin/ase/ase (version 3.23.0b1-4bd916e410)
+numpy:  /opt/bwhpc/common/numlib/python_numpy/1.19.0_python-3.8.3/lib/python3.8/site-packages/numpy-1.19.0-py3.8-linux-x86_64.egg/numpy (version 1.19.0)
+scipy:  /opt/bwhpc/common/numlib/python_scipy/1.5.0_numpy-1.19.0_python-3.8.3/lib/python3.8/site-packages/scipy-1.5.0-py3.8-linux-x86_64.egg/scipy (version 1.5.0)
+libxc:  5.1.7
+units:  Angstrom and eV
+cores: 16
+OpenMP: False
+OMP_NUM_THREADS: 1
+
+Input parameters:
+  mode: fd
+  xc: PBE
+
+Implicit solvation parameters:
+Cavity:  EffectivePotentialCavity
+  Surface Calculator: GradientSurface with 3 nn
+  Volume Calculator: KB51Volume
+    compressibility: 72.57860092224
+    temperature:     298.15
+  EffectivePotentialCavity
+    Potential: Power12Potential
+      u0: 0.18eV
+      pbc_cutoff: 1e-06
+      tiny: 1e-10
+    temperature: 298.15K
+Dielectric:
+  Type: LinearDielectric
+  Solvent dielectric constant: 1.77
+Interaction: SurfaceInteraction
+  subscript: surf
+  Surface_tension: 0.0011484376791625194 eV/(Angstrom^2)
+
+System changes: positions, numbers, cell, pbc, initial_charges, initial_magmoms 
+
+Initialize ...
+
+species:
+  N:
+    name: Nitrogen
+    id: f7500608b86eaa90eef8b1d9a670dc53
+    Z: 7.0
+    valence: 5
+    core: 2
+    charge: 0.0
+    file: /home/fr/fr_fr/fr_ez1021/source/gpaw-setups/gpaw-setups-0.9.20000/N.PBE.gz
+    compensation charges: {type: gauss,
+                           rc: 0.18,
+                           lmax: 2}
+    cutoffs: {filter: 1.11,
+              core: 0.96}
+    valence states:
+      #              energy  rcut
+      - 2s(2.00)   -18.583   0.603
+      - 2p(3.00)    -7.089   0.529
+      -  s           8.629   0.603
+      -  p          20.123   0.529
+      -  d           0.000   0.577
+  
+    # Using partial waves for N as LCAO basis
+
+  C:
+    name: Carbon
+    id: 4aa54d4b901d75f77cc0ea3eec22967b
+    Z: 6.0
+    valence: 4
+    core: 2
+    charge: 0.0
+    file: /home/fr/fr_fr/fr_ez1021/source/gpaw-setups/gpaw-setups-0.9.20000/C.PBE.gz
+    compensation charges: {type: gauss,
+                           rc: 0.20,
+                           lmax: 2}
+    cutoffs: {filter: 1.14,
+              core: 1.14}
+    valence states:
+      #              energy  rcut
+      - 2s(2.00)   -13.751   0.635
+      - 2p(2.00)    -5.284   0.635
+      -  s          13.461   0.635
+      -  p          21.927   0.635
+      -  d           0.000   0.635
+  
+    # Using partial waves for C as LCAO basis
+
+  O:
+    name: Oxygen
+    id: 32ecd46bf208036f09c70b0ec9a88b78
+    Z: 8.0
+    valence: 6
+    core: 2
+    charge: 0.0
+    file: /home/fr/fr_fr/fr_ez1021/source/gpaw-setups/gpaw-setups-0.9.20000/O.PBE.gz
+    compensation charges: {type: gauss,
+                           rc: 0.21,
+                           lmax: 2}
+    cutoffs: {filter: 1.17,
+              core: 0.83}
+    valence states:
+      #              energy  rcut
+      - 2s(2.00)   -23.961   0.688
+      - 2p(4.00)    -9.029   0.598
+      -  s           3.251   0.688
+      -  p          18.182   0.598
+      -  d           0.000   0.619
+  
+    # Using partial waves for O as LCAO basis
+
+  H:
+    name: Hydrogen
+    id: d65de229564ff8ea4db303e23b6d1ecf
+    Z: 1.0
+    valence: 1
+    core: 0
+    charge: 0.0
+    file: /home/fr/fr_fr/fr_ez1021/source/gpaw-setups/gpaw-setups-0.9.20000/H.PBE.gz
+    compensation charges: {type: gauss,
+                           rc: 0.15,
+                           lmax: 2}
+    cutoffs: {filter: 0.85,
+              core: 0.53}
+    valence states:
+      #              energy  rcut
+      - 1s(1.00)    -6.494   0.476
+      -  s          20.717   0.476
+      -  p           0.000   0.476
+  
+    # Using partial waves for H as LCAO basis
+
+Reference energy: -13296.433672  # eV
+
+Spin-paired calculation
+
+Convergence criteria:
+ Maximum [total energy] change in last 3 cyles: 0.0005 eV / valence electron
+ Maximum integral of absolute [dens]ity change: 0.0001 electrons / valence electron
+ Maximum integral of absolute [eigenst]ate change: 4e-08 eV^2 / valence electron
+ Maximum number of scf [iter]ations: 333
+ (Square brackets indicate name in SCF output, whereas a 'c' in
+ the SCF output indicates the quantity has converged.)
+
+Symmetries present (total): 1
+
+  ( 1  0  0)
+  ( 0  1  0)
+  ( 0  0  1)
+
+1 k-point (Gamma)
+1 k-point in the irreducible part of the Brillouin zone
+       k-points in crystal coordinates                weights
+   0:     0.00000000    0.00000000    0.00000000          1/1
+
+Wave functions: Uniform real-space grid
+  Kinetic energy operator: 6*3+1=19 point O(h^6) finite-difference Laplacian
+  ScaLapack parameters: grid=1x1, blocksize=None
+  Wavefunction extrapolation:
+    Improved wavefunction reuse through dual PAW basis 
+
+Occupation numbers: # Zero width 
+
+Eigensolver
+   Davidson(niter=2) 
+
+Densities:
+  Coarse grid: 76*56*64 grid
+  Fine grid: 152*112*128 grid
+  Total Charge: 0.000000 
+
+Density mixing:
+  Method: separate
+  Backend: pulay
+  Linear mixing parameter: 0.25
+  old densities: 3
+  Damping of long wavelength oscillations: 1  # (no daming) 
+
+Hamiltonian:
+  XC and Coulomb potentials evaluated on a 152*112*128 grid
+  Using the PBE Exchange-Correlation functional
+  Interpolation: tri-quintic (5. degree polynomial)
+  Poisson solver: Jacobi weighted FD solver with dielectric and 4 multi-grid levels
+    Coarsest grid: 19 x 14 x 16 points
+    Stencil: Weighted Finite Difference Operator
+      6*3+1=19 point O(h^6) finite-difference Laplacian
+      Finite-difference x-derivative with O(h^6) error (6 points)
+      Finite-difference y-derivative with O(h^6) error (6 points)
+      Finite-difference z-derivative with O(h^6) error (6 points)
+    Max iterations: 1000
+    Tolerance: 2.000000e-10
+
+  Solvation:
+    Cavity:  EffectivePotentialCavity
+      Surface Calculator: GradientSurface with 3 nn
+      Volume Calculator: KB51Volume
+        compressibility: 72.57860092224
+        temperature:     298.15
+      EffectivePotentialCavity
+        Potential: Power12Potential
+          u0: 0.18eV
+          pbc_cutoff: 1e-06
+          tiny: 1e-10
+        temperature: 298.15K    Dielectric:
+      Type: LinearDielectric
+      Solvent dielectric constant: 1.77    Interaction: SurfaceInteraction
+      subscript: surf
+      Surface_tension: 0.0011484376791625194 eV/(Angstrom^2)
+XC parameters: PBE with 2 nearest neighbor stencil
+
+Memory estimate:
+  Process memory now: 147.13 MiB
+  Calculator: 44.22 MiB
+    Density: 4.33 MiB
+      Arrays: 3.16 MiB
+      Localized functions: 0.48 MiB
+      Mixer: 0.69 MiB
+    Hamiltonian: 30.89 MiB
+      Arrays: 2.07 MiB
+      XC: 0.00 MiB
+      Poisson: 2.37 MiB
+      vbar: 0.04 MiB
+      Solvation: 26.41 MiB
+    Wavefunctions: 9.00 MiB
+      Arrays psit_nG: 4.14 MiB
+      Eigensolver: 4.81 MiB
+      Projections: 0.00 MiB
+      Projectors: 0.05 MiB
+
+Total number of cores used: 16
+Domain decomposition: 4 x 2 x 2
+
+Number of atoms: 17
+Number of atomic orbitals: 44
+Number of bands in calculation: 36
+Number of valence electrons: 52
+Bands to converge: occupied
+
+... initialized
+
+Initializing position-dependent things.
+
+Solvation position-dependent initialization:
+  Atomic radii for Power12Potential:
+    Type    Radius   No. of atoms
+       H     1.090     8
+       O     1.520     3
+       N     1.550     2
+       C     1.700     4
+
+Density initialized from atomic densities
+Creating initial wave functions:
+  36 bands from LCAO basis set
+
+        .------------------------------------.  
+       /|                                    |  
+      / |                                    |  
+     /  |                                    |  
+    /   |                                    |  
+   /    |                                    |  
+  /     |                                    |  
+ *      |                                    |  
+ |      |                                    |  
+ |      |        H     H     O               |  
+ |      |        N           C               |  
+ |      |     H        H  C                  |  
+ |      |          C           O             |  
+ |      |          O      N                  |  
+ |      |              H  HH                 |  
+ |      |                                    |  
+ |      .------------------------------------.  
+ |     /                                    /   
+ |    /                                    /    
+ |   /                                    /     
+ |  /                                    /      
+ | /                                    /       
+ |/                                    /        
+ *------------------------------------*         
+
+Positions:
+   0 N      8.734376    5.448121    5.019532    ( 0.0000,  0.0000,  0.0000)
+   1 C      8.653913    5.979165    6.420115    ( 0.0000,  0.0000,  0.0000)
+   2 C     10.041485    5.896891    7.116658    ( 0.0000,  0.0000,  0.0000)
+   3 O     10.077578    6.313735    8.306987    ( 0.0000,  0.0000,  0.0000)
+   4 H      9.216966    6.095083    4.388883    ( 0.0000,  0.0000,  0.0000)
+   5 H      9.253962    4.560753    5.008412    ( 0.0000,  0.0000,  0.0000)
+   6 H      8.379369    7.039083    6.332201    ( 0.0000,  0.0000,  0.0000)
+   7 C      7.573087    5.222822    7.199387    ( 0.0000,  0.0000,  0.0000)
+   8 C      6.190913    5.263115    6.561782    ( 0.0000,  0.0000,  0.0000)
+   9 O      6.038918    5.267210    5.317506    ( 0.0000,  0.0000,  0.0000)
+  10 N      5.149276    5.254342    7.405503    ( 0.0000,  0.0000,  0.0000)
+  11 H      7.531922    5.633287    8.214708    ( 0.0000,  0.0000,  0.0000)
+  12 H      7.858228    4.160917    7.293994    ( 0.0000,  0.0000,  0.0000)
+  13 H      5.279356    5.285542    8.411117    ( 0.0000,  0.0000,  0.0000)
+  14 H      4.202224    5.202272    7.042997    ( 0.0000,  0.0000,  0.0000)
+  15 O     10.997776    5.431980    6.434635    ( 0.0000,  0.0000,  0.0000)
+  16 H      7.751578    5.295805    4.698176    ( 0.0000,  0.0000,  0.0000)
+
+Unit cell:
+           periodic     x           y           z      points  spacing
+  1. axis:    no    15.200000    0.000000    0.000000    76     0.2000
+  2. axis:    no     0.000000   11.200000    0.000000    56     0.2000
+  3. axis:    no     0.000000    0.000000   12.800000    64     0.2000
+
+  Lengths:  15.200000  11.200000  12.800000
+  Angles:   90.000000  90.000000  90.000000
+
+Effective grid spacing dv^(1/3) = 0.2000
+
+     iter     time        total  log10-change:
+                         energy   eigst   dens
+iter:   1 12:50:38  -112.917931
+iter:   2 12:50:39  -106.251999   +0.63  -0.73
+iter:   3 12:50:40  -104.582607   +0.53  -0.95
+iter:   4 12:50:41  -104.373296   -0.23  -1.18
+iter:   5 12:50:42  -104.373968   -0.72  -1.53
+iter:   6 12:50:43  -104.368924c  -1.17  -2.09
+iter:   7 12:50:43  -104.367629c  -1.92  -2.42
+iter:   8 12:50:44  -104.366886c  -2.35  -2.59
+iter:   9 12:50:44  -104.366888c  -2.70  -2.93
+iter:  10 12:50:45  -104.366693c  -3.23  -3.04
+iter:  11 12:50:45  -104.366863c  -3.64  -3.67
+iter:  12 12:50:46  -104.366926c  -4.05  -3.81
+iter:  13 12:50:46  -104.366972c  -4.40  -3.98
+iter:  14 12:50:46  -104.367041c  -4.77  -4.28c
+iter:  15 12:50:47  -104.366972c  -5.10  -4.42c
+iter:  16 12:50:47  -104.366638c  -5.55  -4.83c
+iter:  17 12:50:47  -104.366660c  -5.80  -5.04c
+iter:  18 12:50:48  -104.366907c  -6.11  -5.41c
+iter:  19 12:50:48  -104.366899c  -6.38  -5.42c
+iter:  20 12:50:48  -104.367079c  -6.69  -5.30c
+iter:  21 12:50:49  -104.366931c  -7.08  -5.62c
+iter:  22 12:50:49  -104.366933c  -7.32  -5.64c
+iter:  23 12:50:49  -104.366951c  -7.62c -6.00c
+
+Converged after 23 iterations.
+
+Dipole moment: (-2.049315, -0.338197, -0.830145) |e|*Ang
+
+Energy contributions relative to reference atoms: (reference = -13296.433672)
+
+Kinetic:       +105.848139
+Potential:     -118.435633
+External:        +0.000000
+XC:             -95.611059
+Entropy (-ST):   +0.000000
+Local:           +3.634017
+Interactions  
+ surf:           +0.197586
+--------------------------
+Free energy:   -104.366951
+Extrapolated:  -104.366951
+
+Solvation cavity surface area: 172.04774
+Solvation cavity volume: 176.68141
+ Band  Eigenvalues  Occupancy
+    0    -26.61599    2.00000
+    1    -25.44783    2.00000
+    2    -24.74628    2.00000
+    3    -23.43110    2.00000
+    4    -22.81402    2.00000
+    5    -19.94779    2.00000
+    6    -17.25768    2.00000
+    7    -15.50217    2.00000
+    8    -14.81263    2.00000
+    9    -14.49367    2.00000
+   10    -13.92648    2.00000
+   11    -13.01456    2.00000
+   12    -12.35329    2.00000
+   13    -11.95309    2.00000
+   14    -10.98201    2.00000
+   15    -10.78330    2.00000
+   16    -10.20781    2.00000
+   17     -9.85029    2.00000
+   18     -9.55497    2.00000
+   19     -9.06869    2.00000
+   20     -8.59380    2.00000
+   21     -7.41263    2.00000
+   22     -6.91949    2.00000
+   23     -5.53870    2.00000
+   24     -5.30569    2.00000
+   25     -4.89189    2.00000
+   26     -1.58325    0.00000
+   27     -1.08433    0.00000
+   28     -0.65331    0.00000
+   29     -0.14241    0.00000
+   30      0.18458    0.00000
+   31      0.20777    0.00000
+   32      0.50667    0.00000
+   33      0.64394    0.00000
+   34      0.83863    0.00000
+   35      1.33613    0.00000
+
+Fermi level: -3.23757
+
+Gap: 3.309 eV
+Transition (v -> c):
+  (s=0, k=0, n=25, [0.00, 0.00, 0.00]) -> (s=0, k=0, n=26, [0.00, 0.00, 0.00])
+Input parameters:
+  external: {direction: [1. 0. 0.],
+             name: ConstantElectricField,
+             strength: 0.01}
+
+Initialize ...
+
+species:
+  N:
+    name: Nitrogen
+    id: f7500608b86eaa90eef8b1d9a670dc53
+    Z: 7.0
+    valence: 5
+    core: 2
+    charge: 0.0
+    file: /home/fr/fr_fr/fr_ez1021/source/gpaw-setups/gpaw-setups-0.9.20000/N.PBE.gz
+    compensation charges: {type: gauss,
+                           rc: 0.18,
+                           lmax: 2}
+    cutoffs: {filter: 1.11,
+              core: 0.96}
+    valence states:
+      #              energy  rcut
+      - 2s(2.00)   -18.583   0.603
+      - 2p(3.00)    -7.089   0.529
+      -  s           8.629   0.603
+      -  p          20.123   0.529
+      -  d           0.000   0.577
+  
+    # Using partial waves for N as LCAO basis
+
+  C:
+    name: Carbon
+    id: 4aa54d4b901d75f77cc0ea3eec22967b
+    Z: 6.0
+    valence: 4
+    core: 2
+    charge: 0.0
+    file: /home/fr/fr_fr/fr_ez1021/source/gpaw-setups/gpaw-setups-0.9.20000/C.PBE.gz
+    compensation charges: {type: gauss,
+                           rc: 0.20,
+                           lmax: 2}
+    cutoffs: {filter: 1.14,
+              core: 1.14}
+    valence states:
+      #              energy  rcut
+      - 2s(2.00)   -13.751   0.635
+      - 2p(2.00)    -5.284   0.635
+      -  s          13.461   0.635
+      -  p          21.927   0.635
+      -  d           0.000   0.635
+  
+    # Using partial waves for C as LCAO basis
+
+  O:
+    name: Oxygen
+    id: 32ecd46bf208036f09c70b0ec9a88b78
+    Z: 8.0
+    valence: 6
+    core: 2
+    charge: 0.0
+    file: /home/fr/fr_fr/fr_ez1021/source/gpaw-setups/gpaw-setups-0.9.20000/O.PBE.gz
+    compensation charges: {type: gauss,
+                           rc: 0.21,
+                           lmax: 2}
+    cutoffs: {filter: 1.17,
+              core: 0.83}
+    valence states:
+      #              energy  rcut
+      - 2s(2.00)   -23.961   0.688
+      - 2p(4.00)    -9.029   0.598
+      -  s           3.251   0.688
+      -  p          18.182   0.598
+      -  d           0.000   0.619
+  
+    # Using partial waves for O as LCAO basis
+
+  H:
+    name: Hydrogen
+    id: d65de229564ff8ea4db303e23b6d1ecf
+    Z: 1.0
+    valence: 1
+    core: 0
+    charge: 0.0
+    file: /home/fr/fr_fr/fr_ez1021/source/gpaw-setups/gpaw-setups-0.9.20000/H.PBE.gz
+    compensation charges: {type: gauss,
+                           rc: 0.15,
+                           lmax: 2}
+    cutoffs: {filter: 0.85,
+              core: 0.53}
+    valence states:
+      #              energy  rcut
+      - 1s(1.00)    -6.494   0.476
+      -  s          20.717   0.476
+      -  p           0.000   0.476
+  
+    # Using partial waves for H as LCAO basis
+
+Reference energy: -13296.433672  # eV
+
+Spin-paired calculation
+
+Convergence criteria:
+ Maximum [total energy] change in last 3 cyles: 0.0005 eV / valence electron
+ Maximum integral of absolute [dens]ity change: 0.0001 electrons / valence electron
+ Maximum integral of absolute [eigenst]ate change: 4e-08 eV^2 / valence electron
+ Maximum number of scf [iter]ations: 333
+ (Square brackets indicate name in SCF output, whereas a 'c' in
+ the SCF output indicates the quantity has converged.)
+
+Symmetries present (total): 1
+
+  ( 1  0  0)
+  ( 0  1  0)
+  ( 0  0  1)
+
+1 k-point (Gamma)
+1 k-point in the irreducible part of the Brillouin zone
+       k-points in crystal coordinates                weights
+   0:     0.00000000    0.00000000    0.00000000          1/1
+
+Wave functions: Uniform real-space grid
+  Kinetic energy operator: 6*3+1=19 point O(h^6) finite-difference Laplacian
+  ScaLapack parameters: grid=1x1, blocksize=None
+  Wavefunction extrapolation:
+    Improved wavefunction reuse through dual PAW basis 
+
+Occupation numbers: # Zero width 
+
+Eigensolver
+   Davidson(niter=2) 
+
+Densities:
+  Coarse grid: 76*56*64 grid
+  Fine grid: 152*112*128 grid
+  Total Charge: 0.000000 
+
+Density mixing:
+  Method: separate
+  Backend: pulay
+  Linear mixing parameter: 0.25
+  old densities: 3
+  Damping of long wavelength oscillations: 1  # (no daming) 
+
+Hamiltonian:
+  XC and Coulomb potentials evaluated on a 152*112*128 grid
+  Using the PBE Exchange-Correlation functional
+  External potential:
+    Constant electric field: (0.010, 0.000, 0.000) V/Ang
+  Interpolation: tri-quintic (5. degree polynomial)
+  Poisson solver: Jacobi weighted FD solver with dielectric and 4 multi-grid levels
+    Coarsest grid: 19 x 14 x 16 points
+    Stencil: Weighted Finite Difference Operator
+      6*3+1=19 point O(h^6) finite-difference Laplacian
+      Finite-difference x-derivative with O(h^6) error (6 points)
+      Finite-difference y-derivative with O(h^6) error (6 points)
+      Finite-difference z-derivative with O(h^6) error (6 points)
+    Max iterations: 1000
+    Tolerance: 2.000000e-10
+
+  Solvation:
+    Cavity:  EffectivePotentialCavity
+      Surface Calculator: GradientSurface with 3 nn
+      Volume Calculator: KB51Volume
+        compressibility: 72.57860092224
+        temperature:     298.15
+      EffectivePotentialCavity
+        Potential: Power12Potential
+          u0: 0.18eV
+          pbc_cutoff: 1e-06
+          tiny: 1e-10
+        temperature: 298.15K    Dielectric:
+      Type: LinearDielectric
+      Solvent dielectric constant: 1.77    Interaction: SurfaceInteraction
+      subscript: surf
+      Surface_tension: 0.0011484376791625194 eV/(Angstrom^2)
+XC parameters: PBE with 2 nearest neighbor stencil
+
+Memory estimate:
+  Process memory now: 228.46 MiB
+  Calculator: 44.22 MiB
+    Density: 4.33 MiB
+      Arrays: 3.16 MiB
+      Localized functions: 0.48 MiB
+      Mixer: 0.69 MiB
+    Hamiltonian: 30.89 MiB
+      Arrays: 2.07 MiB
+      XC: 0.00 MiB
+      Poisson: 2.37 MiB
+      vbar: 0.04 MiB
+      Solvation: 26.41 MiB
+    Wavefunctions: 9.00 MiB
+      Arrays psit_nG: 4.14 MiB
+      Eigensolver: 4.81 MiB
+      Projections: 0.00 MiB
+      Projectors: 0.05 MiB
+
+Total number of cores used: 16
+Domain decomposition: 4 x 2 x 2
+
+Number of atoms: 17
+Number of atomic orbitals: 44
+Number of bands in calculation: 36
+Number of valence electrons: 52
+Bands to converge: occupied
+
+... initialized
+
+Initializing position-dependent things.
+
+Solvation position-dependent initialization:
+  Atomic radii for Power12Potential:
+    Type    Radius   No. of atoms
+       H     1.090     8
+       O     1.520     3
+       N     1.550     2
+       C     1.700     4
+
+Density initialized from atomic densities
+Creating initial wave functions:
+  36 bands from LCAO basis set
+
+        .------------------------------------.  
+       /|                                    |  
+      / |                                    |  
+     /  |                                    |  
+    /   |                                    |  
+   /    |                                    |  
+  /     |                                    |  
+ *      |                                    |  
+ |      |                                    |  
+ |      |        H     H     O               |  
+ |      |        N           C               |  
+ |      |     H        H  C                  |  
+ |      |          C           O             |  
+ |      |          O      N                  |  
+ |      |              H  HH                 |  
+ |      |                                    |  
+ |      .------------------------------------.  
+ |     /                                    /   
+ |    /                                    /    
+ |   /                                    /     
+ |  /                                    /      
+ | /                                    /       
+ |/                                    /        
+ *------------------------------------*         
+
+Positions:
+   0 N      8.734376    5.448121    5.019532    ( 0.0000,  0.0000,  0.0000)
+   1 C      8.653913    5.979165    6.420115    ( 0.0000,  0.0000,  0.0000)
+   2 C     10.041485    5.896891    7.116658    ( 0.0000,  0.0000,  0.0000)
+   3 O     10.077578    6.313735    8.306987    ( 0.0000,  0.0000,  0.0000)
+   4 H      9.216966    6.095083    4.388883    ( 0.0000,  0.0000,  0.0000)
+   5 H      9.253962    4.560753    5.008412    ( 0.0000,  0.0000,  0.0000)
+   6 H      8.379369    7.039083    6.332201    ( 0.0000,  0.0000,  0.0000)
+   7 C      7.573087    5.222822    7.199387    ( 0.0000,  0.0000,  0.0000)
+   8 C      6.190913    5.263115    6.561782    ( 0.0000,  0.0000,  0.0000)
+   9 O      6.038918    5.267210    5.317506    ( 0.0000,  0.0000,  0.0000)
+  10 N      5.149276    5.254342    7.405503    ( 0.0000,  0.0000,  0.0000)
+  11 H      7.531922    5.633287    8.214708    ( 0.0000,  0.0000,  0.0000)
+  12 H      7.858228    4.160917    7.293994    ( 0.0000,  0.0000,  0.0000)
+  13 H      5.279356    5.285542    8.411117    ( 0.0000,  0.0000,  0.0000)
+  14 H      4.202224    5.202272    7.042997    ( 0.0000,  0.0000,  0.0000)
+  15 O     10.997776    5.431980    6.434635    ( 0.0000,  0.0000,  0.0000)
+  16 H      7.751578    5.295805    4.698176    ( 0.0000,  0.0000,  0.0000)
+
+Unit cell:
+           periodic     x           y           z      points  spacing
+  1. axis:    no    15.200000    0.000000    0.000000    76     0.2000
+  2. axis:    no     0.000000   11.200000    0.000000    56     0.2000
+  3. axis:    no     0.000000    0.000000   12.800000    64     0.2000
+
+  Lengths:  15.200000  11.200000  12.800000
+  Angles:   90.000000  90.000000  90.000000
+
+Effective grid spacing dv^(1/3) = 0.2000
+
+     iter     time        total  log10-change:
+                         energy   eigst   dens
+iter:   1 12:50:52  -112.893739
+iter:   2 12:50:53  -106.230534   +0.63  -0.73
+iter:   3 12:50:54  -104.562040   +0.53  -0.95
+iter:   4 12:50:55  -104.352818   -0.23  -1.18
+iter:   5 12:50:56  -104.353520   -0.72  -1.53
+iter:   6 12:50:57  -104.348489c  -1.17  -2.09
+iter:   7 12:50:57  -104.347192c  -1.92  -2.42
+iter:   8 12:50:58  -104.346450c  -2.35  -2.59
+iter:   9 12:50:58  -104.346451c  -2.70  -2.93
+iter:  10 12:50:59  -104.346258c  -3.23  -3.04
+iter:  11 12:50:59  -104.346429c  -3.64  -3.67
+iter:  12 12:51:00  -104.346493c  -4.05  -3.81
+iter:  13 12:51:00  -104.346539c  -4.40  -3.98
+iter:  14 12:51:01  -104.346606c  -4.77  -4.28c
+iter:  15 12:51:01  -104.346538c  -5.10  -4.42c
+iter:  16 12:51:01  -104.346209c  -5.54  -4.83c
+iter:  17 12:51:02  -104.346235c  -5.79  -5.04c
+iter:  18 12:51:02  -104.346474c  -6.11  -5.41c
+iter:  19 12:51:02  -104.346467c  -6.38  -5.42c
+iter:  20 12:51:03  -104.346642c  -6.69  -5.30c
+iter:  21 12:51:03  -104.346497c  -7.08  -5.62c
+iter:  22 12:51:03  -104.346499c  -7.31  -5.64c
+iter:  23 12:51:04  -104.346516c  -7.61c -6.00c
+
+Converged after 23 iterations.
+
+Dipole moment: (-2.037394, -0.338103, -0.830581) |e|*Ang
+
+Energy contributions relative to reference atoms: (reference = -13296.433672)
+
+Kinetic:       +105.857094
+Potential:     -118.445204
+External:        +0.020374
+XC:             -95.610322
+Entropy (-ST):   +0.000000
+Local:           +3.633955
+Interactions  
+ surf:           +0.197586
+--------------------------
+Free energy:   -104.346516
+Extrapolated:  -104.346516
+
+Solvation cavity surface area: 172.04774
+Solvation cavity volume: 176.68141
+ Band  Eigenvalues  Occupancy
+    0    -26.62672    2.00000
+    1    -25.43305    2.00000
+    2    -24.73020    2.00000
+    3    -23.44609    2.00000
+    4    -22.79216    2.00000
+    5    -19.94495    2.00000
+    6    -17.25504    2.00000
+    7    -15.50999    2.00000
+    8    -14.80406    2.00000
+    9    -14.48842    2.00000
+   10    -13.93825    2.00000
+   11    -13.01024    2.00000
+   12    -12.35157    2.00000
+   13    -11.94955    2.00000
+   14    -10.98309    2.00000
+   15    -10.78443    2.00000
+   16    -10.20777    2.00000
+   17     -9.83294    2.00000
+   18     -9.55450    2.00000
+   19     -9.04628    2.00000
+   20     -8.57586    2.00000
+   21     -7.42725    2.00000
+   22     -6.92858    2.00000
+   23     -5.51586    2.00000
+   24     -5.28378    2.00000
+   25     -4.87046    2.00000
+   26     -1.59293    0.00000
+   27     -1.08345    0.00000
+   28     -0.66493    0.00000
+   29     -0.13404    0.00000
+   30      0.17173    0.00000
+   31      0.21487    0.00000
+   32      0.50502    0.00000
+   33      0.64678    0.00000
+   34      0.83477    0.00000
+   35      1.32000    0.00000
+
+Fermi level: -3.23170
+
+Gap: 3.278 eV
+Transition (v -> c):
+  (s=0, k=0, n=25, [0.00, 0.00, 0.00]) -> (s=0, k=0, n=26, [0.00, 0.00, 0.00])
+Input parameters:
+  external: {direction: [0. 1. 0.],
+             name: ConstantElectricField,
+             strength: 0.01}
+
+Initialize ...
+
+species:
+  N:
+    name: Nitrogen
+    id: f7500608b86eaa90eef8b1d9a670dc53
+    Z: 7.0
+    valence: 5
+    core: 2
+    charge: 0.0
+    file: /home/fr/fr_fr/fr_ez1021/source/gpaw-setups/gpaw-setups-0.9.20000/N.PBE.gz
+    compensation charges: {type: gauss,
+                           rc: 0.18,
+                           lmax: 2}
+    cutoffs: {filter: 1.11,
+              core: 0.96}
+    valence states:
+      #              energy  rcut
+      - 2s(2.00)   -18.583   0.603
+      - 2p(3.00)    -7.089   0.529
+      -  s           8.629   0.603
+      -  p          20.123   0.529
+      -  d           0.000   0.577
+  
+    # Using partial waves for N as LCAO basis
+
+  C:
+    name: Carbon
+    id: 4aa54d4b901d75f77cc0ea3eec22967b
+    Z: 6.0
+    valence: 4
+    core: 2
+    charge: 0.0
+    file: /home/fr/fr_fr/fr_ez1021/source/gpaw-setups/gpaw-setups-0.9.20000/C.PBE.gz
+    compensation charges: {type: gauss,
+                           rc: 0.20,
+                           lmax: 2}
+    cutoffs: {filter: 1.14,
+              core: 1.14}
+    valence states:
+      #              energy  rcut
+      - 2s(2.00)   -13.751   0.635
+      - 2p(2.00)    -5.284   0.635
+      -  s          13.461   0.635
+      -  p          21.927   0.635
+      -  d           0.000   0.635
+  
+    # Using partial waves for C as LCAO basis
+
+  O:
+    name: Oxygen
+    id: 32ecd46bf208036f09c70b0ec9a88b78
+    Z: 8.0
+    valence: 6
+    core: 2
+    charge: 0.0
+    file: /home/fr/fr_fr/fr_ez1021/source/gpaw-setups/gpaw-setups-0.9.20000/O.PBE.gz
+    compensation charges: {type: gauss,
+                           rc: 0.21,
+                           lmax: 2}
+    cutoffs: {filter: 1.17,
+              core: 0.83}
+    valence states:
+      #              energy  rcut
+      - 2s(2.00)   -23.961   0.688
+      - 2p(4.00)    -9.029   0.598
+      -  s           3.251   0.688
+      -  p          18.182   0.598
+      -  d           0.000   0.619
+  
+    # Using partial waves for O as LCAO basis
+
+  H:
+    name: Hydrogen
+    id: d65de229564ff8ea4db303e23b6d1ecf
+    Z: 1.0
+    valence: 1
+    core: 0
+    charge: 0.0
+    file: /home/fr/fr_fr/fr_ez1021/source/gpaw-setups/gpaw-setups-0.9.20000/H.PBE.gz
+    compensation charges: {type: gauss,
+                           rc: 0.15,
+                           lmax: 2}
+    cutoffs: {filter: 0.85,
+              core: 0.53}
+    valence states:
+      #              energy  rcut
+      - 1s(1.00)    -6.494   0.476
+      -  s          20.717   0.476
+      -  p           0.000   0.476
+  
+    # Using partial waves for H as LCAO basis
+
+Reference energy: -13296.433672  # eV
+
+Spin-paired calculation
+
+Convergence criteria:
+ Maximum [total energy] change in last 3 cyles: 0.0005 eV / valence electron
+ Maximum integral of absolute [dens]ity change: 0.0001 electrons / valence electron
+ Maximum integral of absolute [eigenst]ate change: 4e-08 eV^2 / valence electron
+ Maximum number of scf [iter]ations: 333
+ (Square brackets indicate name in SCF output, whereas a 'c' in
+ the SCF output indicates the quantity has converged.)
+
+Symmetries present (total): 1
+
+  ( 1  0  0)
+  ( 0  1  0)
+  ( 0  0  1)
+
+1 k-point (Gamma)
+1 k-point in the irreducible part of the Brillouin zone
+       k-points in crystal coordinates                weights
+   0:     0.00000000    0.00000000    0.00000000          1/1
+
+Wave functions: Uniform real-space grid
+  Kinetic energy operator: 6*3+1=19 point O(h^6) finite-difference Laplacian
+  ScaLapack parameters: grid=1x1, blocksize=None
+  Wavefunction extrapolation:
+    Improved wavefunction reuse through dual PAW basis 
+
+Occupation numbers: # Zero width 
+
+Eigensolver
+   Davidson(niter=2) 
+
+Densities:
+  Coarse grid: 76*56*64 grid
+  Fine grid: 152*112*128 grid
+  Total Charge: 0.000000 
+
+Density mixing:
+  Method: separate
+  Backend: pulay
+  Linear mixing parameter: 0.25
+  old densities: 3
+  Damping of long wavelength oscillations: 1  # (no daming) 
+
+Hamiltonian:
+  XC and Coulomb potentials evaluated on a 152*112*128 grid
+  Using the PBE Exchange-Correlation functional
+  External potential:
+    Constant electric field: (0.000, 0.010, 0.000) V/Ang
+  Interpolation: tri-quintic (5. degree polynomial)
+  Poisson solver: Jacobi weighted FD solver with dielectric and 4 multi-grid levels
+    Coarsest grid: 19 x 14 x 16 points
+    Stencil: Weighted Finite Difference Operator
+      6*3+1=19 point O(h^6) finite-difference Laplacian
+      Finite-difference x-derivative with O(h^6) error (6 points)
+      Finite-difference y-derivative with O(h^6) error (6 points)
+      Finite-difference z-derivative with O(h^6) error (6 points)
+    Max iterations: 1000
+    Tolerance: 2.000000e-10
+
+  Solvation:
+    Cavity:  EffectivePotentialCavity
+      Surface Calculator: GradientSurface with 3 nn
+      Volume Calculator: KB51Volume
+        compressibility: 72.57860092224
+        temperature:     298.15
+      EffectivePotentialCavity
+        Potential: Power12Potential
+          u0: 0.18eV
+          pbc_cutoff: 1e-06
+          tiny: 1e-10
+        temperature: 298.15K    Dielectric:
+      Type: LinearDielectric
+      Solvent dielectric constant: 1.77    Interaction: SurfaceInteraction
+      subscript: surf
+      Surface_tension: 0.0011484376791625194 eV/(Angstrom^2)
+XC parameters: PBE with 2 nearest neighbor stencil
+
+Memory estimate:
+  Process memory now: 232.32 MiB
+  Calculator: 44.22 MiB
+    Density: 4.33 MiB
+      Arrays: 3.16 MiB
+      Localized functions: 0.48 MiB
+      Mixer: 0.69 MiB
+    Hamiltonian: 30.89 MiB
+      Arrays: 2.07 MiB
+      XC: 0.00 MiB
+      Poisson: 2.37 MiB
+      vbar: 0.04 MiB
+      Solvation: 26.41 MiB
+    Wavefunctions: 9.00 MiB
+      Arrays psit_nG: 4.14 MiB
+      Eigensolver: 4.81 MiB
+      Projections: 0.00 MiB
+      Projectors: 0.05 MiB
+
+Total number of cores used: 16
+Domain decomposition: 4 x 2 x 2
+
+Number of atoms: 17
+Number of atomic orbitals: 44
+Number of bands in calculation: 36
+Number of valence electrons: 52
+Bands to converge: occupied
+
+... initialized
+
+Initializing position-dependent things.
+
+Solvation position-dependent initialization:
+  Atomic radii for Power12Potential:
+    Type    Radius   No. of atoms
+       H     1.090     8
+       O     1.520     3
+       N     1.550     2
+       C     1.700     4
+
+Density initialized from atomic densities
+Creating initial wave functions:
+  36 bands from LCAO basis set
+
+        .------------------------------------.  
+       /|                                    |  
+      / |                                    |  
+     /  |                                    |  
+    /   |                                    |  
+   /    |                                    |  
+  /     |                                    |  
+ *      |                                    |  
+ |      |                                    |  
+ |      |        H     H     O               |  
+ |      |        N           C               |  
+ |      |     H        H  C                  |  
+ |      |          C           O             |  
+ |      |          O      N                  |  
+ |      |              H  HH                 |  
+ |      |                                    |  
+ |      .------------------------------------.  
+ |     /                                    /   
+ |    /                                    /    
+ |   /                                    /     
+ |  /                                    /      
+ | /                                    /       
+ |/                                    /        
+ *------------------------------------*         
+
+Positions:
+   0 N      8.734376    5.448121    5.019532    ( 0.0000,  0.0000,  0.0000)
+   1 C      8.653913    5.979165    6.420115    ( 0.0000,  0.0000,  0.0000)
+   2 C     10.041485    5.896891    7.116658    ( 0.0000,  0.0000,  0.0000)
+   3 O     10.077578    6.313735    8.306987    ( 0.0000,  0.0000,  0.0000)
+   4 H      9.216966    6.095083    4.388883    ( 0.0000,  0.0000,  0.0000)
+   5 H      9.253962    4.560753    5.008412    ( 0.0000,  0.0000,  0.0000)
+   6 H      8.379369    7.039083    6.332201    ( 0.0000,  0.0000,  0.0000)
+   7 C      7.573087    5.222822    7.199387    ( 0.0000,  0.0000,  0.0000)
+   8 C      6.190913    5.263115    6.561782    ( 0.0000,  0.0000,  0.0000)
+   9 O      6.038918    5.267210    5.317506    ( 0.0000,  0.0000,  0.0000)
+  10 N      5.149276    5.254342    7.405503    ( 0.0000,  0.0000,  0.0000)
+  11 H      7.531922    5.633287    8.214708    ( 0.0000,  0.0000,  0.0000)
+  12 H      7.858228    4.160917    7.293994    ( 0.0000,  0.0000,  0.0000)
+  13 H      5.279356    5.285542    8.411117    ( 0.0000,  0.0000,  0.0000)
+  14 H      4.202224    5.202272    7.042997    ( 0.0000,  0.0000,  0.0000)
+  15 O     10.997776    5.431980    6.434635    ( 0.0000,  0.0000,  0.0000)
+  16 H      7.751578    5.295805    4.698176    ( 0.0000,  0.0000,  0.0000)
+
+Unit cell:
+           periodic     x           y           z      points  spacing
+  1. axis:    no    15.200000    0.000000    0.000000    76     0.2000
+  2. axis:    no     0.000000   11.200000    0.000000    56     0.2000
+  3. axis:    no     0.000000    0.000000   12.800000    64     0.2000
+
+  Lengths:  15.200000  11.200000  12.800000
+  Angles:   90.000000  90.000000  90.000000
+
+Effective grid spacing dv^(1/3) = 0.2000
+
+     iter     time        total  log10-change:
+                         energy   eigst   dens
+iter:   1 12:51:06  -112.913618
+iter:   2 12:51:07  -106.248292   +0.63  -0.73
+iter:   3 12:51:08  -104.579438   +0.53  -0.95
+iter:   4 12:51:09  -104.369926   -0.23  -1.18
+iter:   5 12:51:10  -104.370622   -0.72  -1.53
+iter:   6 12:51:11  -104.365590c  -1.17  -2.09
+iter:   7 12:51:12  -104.364288c  -1.92  -2.42
+iter:   8 12:51:12  -104.363542c  -2.35  -2.59
+iter:   9 12:51:13  -104.363542c  -2.69  -2.93
+iter:  10 12:51:13  -104.363347c  -3.23  -3.04
+iter:  11 12:51:14  -104.363518c  -3.64  -3.67
+iter:  12 12:51:14  -104.363581c  -4.05  -3.81
+iter:  13 12:51:14  -104.363627c  -4.40  -3.98
+iter:  14 12:51:15  -104.363631c  -4.77  -4.28c
+iter:  15 12:51:15  -104.363622c  -5.10  -4.43c
+iter:  16 12:51:16  -104.363306c  -5.55  -4.85c
+iter:  17 12:51:16  -104.363342c  -5.80  -5.06c
+iter:  18 12:51:16  -104.363563c  -6.11  -5.41c
+iter:  19 12:51:17  -104.363555c  -6.38  -5.43c
+iter:  20 12:51:17  -104.363727c  -6.70  -5.31c
+iter:  21 12:51:17  -104.363584c  -7.09  -5.62c
+iter:  22 12:51:17  -104.363587c  -7.32  -5.65c
+iter:  23 12:51:18  -104.363602c  -7.62c -6.00c
+
+Converged after 23 iterations.
+
+Dipole moment: (-2.049220, -0.330957, -0.829524) |e|*Ang
+
+Energy contributions relative to reference atoms: (reference = -13296.433672)
+
+Kinetic:       +105.849255
+Potential:     -118.437000
+External:        +0.003310
+XC:             -95.610748
+Entropy (-ST):   +0.000000
+Local:           +3.633995
+Interactions  
+ surf:           +0.197586
+--------------------------
+Free energy:   -104.363602
+Extrapolated:  -104.363602
+
+Solvation cavity surface area: 172.04774
+Solvation cavity volume: 176.68141
+ Band  Eigenvalues  Occupancy
+    0    -26.61884    2.00000
+    1    -25.44731    2.00000
+    2    -24.74548    2.00000
+    3    -23.43417    2.00000
+    4    -22.81198    2.00000
+    5    -19.94909    2.00000
+    6    -17.25827    2.00000
+    7    -15.50438    2.00000
+    8    -14.81371    2.00000
+    9    -14.49427    2.00000
+   10    -13.92921    2.00000
+   11    -13.01520    2.00000
+   12    -12.35506    2.00000
+   13    -11.95390    2.00000
+   14    -10.98274    2.00000
+   15    -10.78486    2.00000
+   16    -10.20930    2.00000
+   17     -9.84882    2.00000
+   18     -9.55728    2.00000
+   19     -9.06650    2.00000
+   20     -8.59212    2.00000
+   21     -7.41572    2.00000
+   22     -6.92222    2.00000
+   23     -5.53652    2.00000
+   24     -5.30458    2.00000
+   25     -4.88912    2.00000
+   26     -1.58744    0.00000
+   27     -1.08348    0.00000
+   28     -0.65553    0.00000
+   29     -0.14130    0.00000
+   30      0.18344    0.00000
+   31      0.20280    0.00000
+   32      0.50748    0.00000
+   33      0.64137    0.00000
+   34      0.82967    0.00000
+   35      1.32997    0.00000
+
+Fermi level: -3.23828
+
+Gap: 3.302 eV
+Transition (v -> c):
+  (s=0, k=0, n=25, [0.00, 0.00, 0.00]) -> (s=0, k=0, n=26, [0.00, 0.00, 0.00])
+Input parameters:
+  external: {direction: [0. 0. 1.],
+             name: ConstantElectricField,
+             strength: 0.01}
+
+Initialize ...
+
+species:
+  N:
+    name: Nitrogen
+    id: f7500608b86eaa90eef8b1d9a670dc53
+    Z: 7.0
+    valence: 5
+    core: 2
+    charge: 0.0
+    file: /home/fr/fr_fr/fr_ez1021/source/gpaw-setups/gpaw-setups-0.9.20000/N.PBE.gz
+    compensation charges: {type: gauss,
+                           rc: 0.18,
+                           lmax: 2}
+    cutoffs: {filter: 1.11,
+              core: 0.96}
+    valence states:
+      #              energy  rcut
+      - 2s(2.00)   -18.583   0.603
+      - 2p(3.00)    -7.089   0.529
+      -  s           8.629   0.603
+      -  p          20.123   0.529
+      -  d           0.000   0.577
+  
+    # Using partial waves for N as LCAO basis
+
+  C:
+    name: Carbon
+    id: 4aa54d4b901d75f77cc0ea3eec22967b
+    Z: 6.0
+    valence: 4
+    core: 2
+    charge: 0.0
+    file: /home/fr/fr_fr/fr_ez1021/source/gpaw-setups/gpaw-setups-0.9.20000/C.PBE.gz
+    compensation charges: {type: gauss,
+                           rc: 0.20,
+                           lmax: 2}
+    cutoffs: {filter: 1.14,
+              core: 1.14}
+    valence states:
+      #              energy  rcut
+      - 2s(2.00)   -13.751   0.635
+      - 2p(2.00)    -5.284   0.635
+      -  s          13.461   0.635
+      -  p          21.927   0.635
+      -  d           0.000   0.635
+  
+    # Using partial waves for C as LCAO basis
+
+  O:
+    name: Oxygen
+    id: 32ecd46bf208036f09c70b0ec9a88b78
+    Z: 8.0
+    valence: 6
+    core: 2
+    charge: 0.0
+    file: /home/fr/fr_fr/fr_ez1021/source/gpaw-setups/gpaw-setups-0.9.20000/O.PBE.gz
+    compensation charges: {type: gauss,
+                           rc: 0.21,
+                           lmax: 2}
+    cutoffs: {filter: 1.17,
+              core: 0.83}
+    valence states:
+      #              energy  rcut
+      - 2s(2.00)   -23.961   0.688
+      - 2p(4.00)    -9.029   0.598
+      -  s           3.251   0.688
+      -  p          18.182   0.598
+      -  d           0.000   0.619
+  
+    # Using partial waves for O as LCAO basis
+
+  H:
+    name: Hydrogen
+    id: d65de229564ff8ea4db303e23b6d1ecf
+    Z: 1.0
+    valence: 1
+    core: 0
+    charge: 0.0
+    file: /home/fr/fr_fr/fr_ez1021/source/gpaw-setups/gpaw-setups-0.9.20000/H.PBE.gz
+    compensation charges: {type: gauss,
+                           rc: 0.15,
+                           lmax: 2}
+    cutoffs: {filter: 0.85,
+              core: 0.53}
+    valence states:
+      #              energy  rcut
+      - 1s(1.00)    -6.494   0.476
+      -  s          20.717   0.476
+      -  p           0.000   0.476
+  
+    # Using partial waves for H as LCAO basis
+
+Reference energy: -13296.433672  # eV
+
+Spin-paired calculation
+
+Convergence criteria:
+ Maximum [total energy] change in last 3 cyles: 0.0005 eV / valence electron
+ Maximum integral of absolute [dens]ity change: 0.0001 electrons / valence electron
+ Maximum integral of absolute [eigenst]ate change: 4e-08 eV^2 / valence electron
+ Maximum number of scf [iter]ations: 333
+ (Square brackets indicate name in SCF output, whereas a 'c' in
+ the SCF output indicates the quantity has converged.)
+
+Symmetries present (total): 1
+
+  ( 1  0  0)
+  ( 0  1  0)
+  ( 0  0  1)
+
+1 k-point (Gamma)
+1 k-point in the irreducible part of the Brillouin zone
+       k-points in crystal coordinates                weights
+   0:     0.00000000    0.00000000    0.00000000          1/1
+
+Wave functions: Uniform real-space grid
+  Kinetic energy operator: 6*3+1=19 point O(h^6) finite-difference Laplacian
+  ScaLapack parameters: grid=1x1, blocksize=None
+  Wavefunction extrapolation:
+    Improved wavefunction reuse through dual PAW basis 
+
+Occupation numbers: # Zero width 
+
+Eigensolver
+   Davidson(niter=2) 
+
+Densities:
+  Coarse grid: 76*56*64 grid
+  Fine grid: 152*112*128 grid
+  Total Charge: 0.000000 
+
+Density mixing:
+  Method: separate
+  Backend: pulay
+  Linear mixing parameter: 0.25
+  old densities: 3
+  Damping of long wavelength oscillations: 1  # (no daming) 
+
+Hamiltonian:
+  XC and Coulomb potentials evaluated on a 152*112*128 grid
+  Using the PBE Exchange-Correlation functional
+  External potential:
+    Constant electric field: (0.000, 0.000, 0.010) V/Ang
+  Interpolation: tri-quintic (5. degree polynomial)
+  Poisson solver: Jacobi weighted FD solver with dielectric and 4 multi-grid levels
+    Coarsest grid: 19 x 14 x 16 points
+    Stencil: Weighted Finite Difference Operator
+      6*3+1=19 point O(h^6) finite-difference Laplacian
+      Finite-difference x-derivative with O(h^6) error (6 points)
+      Finite-difference y-derivative with O(h^6) error (6 points)
+      Finite-difference z-derivative with O(h^6) error (6 points)
+    Max iterations: 1000
+    Tolerance: 2.000000e-10
+
+  Solvation:
+    Cavity:  EffectivePotentialCavity
+      Surface Calculator: GradientSurface with 3 nn
+      Volume Calculator: KB51Volume
+        compressibility: 72.57860092224
+        temperature:     298.15
+      EffectivePotentialCavity
+        Potential: Power12Potential
+          u0: 0.18eV
+          pbc_cutoff: 1e-06
+          tiny: 1e-10
+        temperature: 298.15K    Dielectric:
+      Type: LinearDielectric
+      Solvent dielectric constant: 1.77    Interaction: SurfaceInteraction
+      subscript: surf
+      Surface_tension: 0.0011484376791625194 eV/(Angstrom^2)
+XC parameters: PBE with 2 nearest neighbor stencil
+
+Memory estimate:
+  Process memory now: 237.34 MiB
+  Calculator: 44.22 MiB
+    Density: 4.33 MiB
+      Arrays: 3.16 MiB
+      Localized functions: 0.48 MiB
+      Mixer: 0.69 MiB
+    Hamiltonian: 30.89 MiB
+      Arrays: 2.07 MiB
+      XC: 0.00 MiB
+      Poisson: 2.37 MiB
+      vbar: 0.04 MiB
+      Solvation: 26.41 MiB
+    Wavefunctions: 9.00 MiB
+      Arrays psit_nG: 4.14 MiB
+      Eigensolver: 4.81 MiB
+      Projections: 0.00 MiB
+      Projectors: 0.05 MiB
+
+Total number of cores used: 16
+Domain decomposition: 4 x 2 x 2
+
+Number of atoms: 17
+Number of atomic orbitals: 44
+Number of bands in calculation: 36
+Number of valence electrons: 52
+Bands to converge: occupied
+
+... initialized
+
+Initializing position-dependent things.
+
+Solvation position-dependent initialization:
+  Atomic radii for Power12Potential:
+    Type    Radius   No. of atoms
+       H     1.090     8
+       O     1.520     3
+       N     1.550     2
+       C     1.700     4
+
+Density initialized from atomic densities
+Creating initial wave functions:
+  36 bands from LCAO basis set
+
+        .------------------------------------.  
+       /|                                    |  
+      / |                                    |  
+     /  |                                    |  
+    /   |                                    |  
+   /    |                                    |  
+  /     |                                    |  
+ *      |                                    |  
+ |      |                                    |  
+ |      |        H     H     O               |  
+ |      |        N           C               |  
+ |      |     H        H  C                  |  
+ |      |          C           O             |  
+ |      |          O      N                  |  
+ |      |              H  HH                 |  
+ |      |                                    |  
+ |      .------------------------------------.  
+ |     /                                    /   
+ |    /                                    /    
+ |   /                                    /     
+ |  /                                    /      
+ | /                                    /       
+ |/                                    /        
+ *------------------------------------*         
+
+Positions:
+   0 N      8.734376    5.448121    5.019532    ( 0.0000,  0.0000,  0.0000)
+   1 C      8.653913    5.979165    6.420115    ( 0.0000,  0.0000,  0.0000)
+   2 C     10.041485    5.896891    7.116658    ( 0.0000,  0.0000,  0.0000)
+   3 O     10.077578    6.313735    8.306987    ( 0.0000,  0.0000,  0.0000)
+   4 H      9.216966    6.095083    4.388883    ( 0.0000,  0.0000,  0.0000)
+   5 H      9.253962    4.560753    5.008412    ( 0.0000,  0.0000,  0.0000)
+   6 H      8.379369    7.039083    6.332201    ( 0.0000,  0.0000,  0.0000)
+   7 C      7.573087    5.222822    7.199387    ( 0.0000,  0.0000,  0.0000)
+   8 C      6.190913    5.263115    6.561782    ( 0.0000,  0.0000,  0.0000)
+   9 O      6.038918    5.267210    5.317506    ( 0.0000,  0.0000,  0.0000)
+  10 N      5.149276    5.254342    7.405503    ( 0.0000,  0.0000,  0.0000)
+  11 H      7.531922    5.633287    8.214708    ( 0.0000,  0.0000,  0.0000)
+  12 H      7.858228    4.160917    7.293994    ( 0.0000,  0.0000,  0.0000)
+  13 H      5.279356    5.285542    8.411117    ( 0.0000,  0.0000,  0.0000)
+  14 H      4.202224    5.202272    7.042997    ( 0.0000,  0.0000,  0.0000)
+  15 O     10.997776    5.431980    6.434635    ( 0.0000,  0.0000,  0.0000)
+  16 H      7.751578    5.295805    4.698176    ( 0.0000,  0.0000,  0.0000)
+
+Unit cell:
+           periodic     x           y           z      points  spacing
+  1. axis:    no    15.200000    0.000000    0.000000    76     0.2000
+  2. axis:    no     0.000000   11.200000    0.000000    56     0.2000
+  3. axis:    no     0.000000    0.000000   12.800000    64     0.2000
+
+  Lengths:  15.200000  11.200000  12.800000
+  Angles:   90.000000  90.000000  90.000000
+
+Effective grid spacing dv^(1/3) = 0.2000
+
+     iter     time        total  log10-change:
+                         energy   eigst   dens
+iter:   1 12:51:20  -112.907529
+iter:   2 12:51:21  -106.242713   +0.63  -0.73
+iter:   3 12:51:22  -104.574458   +0.53  -0.95
+iter:   4 12:51:23  -104.365036   -0.23  -1.18
+iter:   5 12:51:23  -104.365723   -0.72  -1.53
+iter:   6 12:51:24  -104.360681c  -1.17  -2.09
+iter:   7 12:51:24  -104.359383c  -1.92  -2.42
+iter:   8 12:51:25  -104.358639c  -2.35  -2.59
+iter:   9 12:51:25  -104.358637c  -2.70  -2.93
+iter:  10 12:51:26  -104.358445c  -3.23  -3.04
+iter:  11 12:51:26  -104.358617c  -3.64  -3.67
+iter:  12 12:51:26  -104.358680c  -4.05  -3.81
+iter:  13 12:51:27  -104.358726c  -4.40  -3.98
+iter:  14 12:51:27  -104.358790c  -4.77  -4.28c
+iter:  15 12:51:27  -104.358723c  -5.10  -4.42c
+iter:  16 12:51:28  -104.358397c  -5.55  -4.83c
+iter:  17 12:51:28  -104.358420c  -5.79  -5.05c
+iter:  18 12:51:28  -104.358661c  -6.11  -5.41c
+iter:  19 12:51:29  -104.358653c  -6.38  -5.42c
+iter:  20 12:51:29  -104.358831c  -6.69  -5.30c
+iter:  21 12:51:29  -104.358681c  -7.09  -5.62c
+iter:  22 12:51:29  -104.358684c  -7.32  -5.64c
+iter:  23 12:51:30  -104.358703c  -7.62c -6.00c
+
+Converged after 23 iterations.
+
+Dipole moment: (-2.049752, -0.337576, -0.819463) |e|*Ang
+
+Energy contributions relative to reference atoms: (reference = -13296.433672)
+
+Kinetic:       +105.852616
+Potential:     -118.439894
+External:        +0.008195
+XC:             -95.611204
+Entropy (-ST):   +0.000000
+Local:           +3.633998
+Interactions  
+ surf:           +0.197586
+--------------------------
+Free energy:   -104.358703
+Extrapolated:  -104.358703
+
+Solvation cavity surface area: 172.04774
+Solvation cavity volume: 176.68141
+ Band  Eigenvalues  Occupancy
+    0    -26.61635    2.00000
+    1    -25.44797    2.00000
+    2    -24.74558    2.00000
+    3    -23.42637    2.00000
+    4    -22.80742    2.00000
+    5    -19.94488    2.00000
+    6    -17.25570    2.00000
+    7    -15.49930    2.00000
+    8    -14.81693    2.00000
+    9    -14.49727    2.00000
+   10    -13.92165    2.00000
+   11    -13.01471    2.00000
+   12    -12.35197    2.00000
+   13    -11.95071    2.00000
+   14    -10.98092    2.00000
+   15    -10.78108    2.00000
+   16    -10.20509    2.00000
+   17     -9.84511    2.00000
+   18     -9.55084    2.00000
+   19     -9.06119    2.00000
+   20     -8.58858    2.00000
+   21     -7.41003    2.00000
+   22     -6.92080    2.00000
+   23     -5.53150    2.00000
+   24     -5.30094    2.00000
+   25     -4.88369    2.00000
+   26     -1.58107    0.00000
+   27     -1.09180    0.00000
+   28     -0.64818    0.00000
+   29     -0.14722    0.00000
+   30      0.19069    0.00000
+   31      0.21020    0.00000
+   32      0.50296    0.00000
+   33      0.64113    0.00000
+   34      0.84196    0.00000
+   35      1.35255    0.00000
+
+Fermi level: -3.23238
+
+Gap: 3.303 eV
+Transition (v -> c):
+  (s=0, k=0, n=25, [0.00, 0.00, 0.00]) -> (s=0, k=0, n=26, [0.00, 0.00, 0.00])
+Input parameters:
+  external: None
+
+Timing:                              incl.     excl.
+-----------------------------------------------------------
+Hamiltonian:                         6.976     1.126   2.1% ||
+ Atomic:                             0.134     0.004   0.0% |
+  XC Correction:                     0.130     0.130   0.2% |
+ Hartree integrate/restrict:         0.012     0.012   0.0% |
+ Initialize Hamiltonian:             0.118     0.118   0.2% |
+ Poisson:                            5.416     5.416   9.9% |---|
+ XC 3D grid:                         0.166     0.166   0.3% |
+ vbar:                               0.004     0.004   0.0% |
+LCAO initialization:                 1.050     0.824   1.5% ||
+ LCAO eigensolver:                   0.071     0.001   0.0% |
+  Calculate projections:             0.000     0.000   0.0% |
+  DenseAtomicCorrection:             0.000     0.000   0.0% |
+  Distribute overlap matrix:         0.063     0.063   0.1% |
+  Orbital Layouts:                   0.003     0.003   0.0% |
+  Potential matrix:                  0.003     0.003   0.0% |
+ LCAO to grid:                       0.021     0.021   0.0% |
+ Set positions (LCAO WFS):           0.134     0.103   0.2% |
+  Basic WFS set positions:           0.003     0.003   0.0% |
+  Basis functions set positions:     0.000     0.000   0.0% |
+  P tci:                             0.001     0.001   0.0% |
+  ST tci:                            0.009     0.009   0.0% |
+  mktci:                             0.018     0.018   0.0% |
+SCF-cycle:                          45.545     0.070   0.1% |
+ Davidson:                          15.190     5.288   9.7% |---|
+  Apply hamiltonian:                 1.270     1.270   2.3% ||
+  Subspace diag:                     2.229     0.010   0.0% |
+   calc_h_matrix:                    1.474     0.235   0.4% |
+    Apply hamiltonian:               1.238     1.238   2.3% ||
+   diagonalize:                      0.102     0.102   0.2% |
+   rotate_psi:                       0.643     0.643   1.2% |
+  calc. matrices:                    4.982     1.928   3.5% ||
+   Apply hamiltonian:                3.054     3.054   5.6% |-|
+  diagonalize:                       0.170     0.170   0.3% |
+  rotate_psi:                        1.250     1.250   2.3% ||
+ Density:                            0.529     0.002   0.0% |
+  Atomic density matrices:           0.118     0.118   0.2% |
+  Mix:                               0.308     0.308   0.6% |
+  Multipole moments:                 0.016     0.016   0.0% |
+  Pseudo density:                    0.085     0.083   0.2% |
+   Symmetrize density:               0.001     0.001   0.0% |
+ Hamiltonian:                       29.571     1.773   3.2% ||
+  Atomic:                            2.920     0.068   0.1% |
+   XC Correction:                    2.852     2.852   5.2% |-|
+  Hartree integrate/restrict:        0.223     0.223   0.4% |
+  Poisson:                          21.450    21.450  39.3% |---------------|
+  XC 3D grid:                        3.162     3.162   5.8% |-|
+  vbar:                              0.042     0.042   0.1% |
+ Orthonormalize:                     0.187     0.001   0.0% |
+  calc_s_matrix:                     0.006     0.006   0.0% |
+  inverse-cholesky:                  0.163     0.163   0.3% |
+  projections:                       0.000     0.000   0.0% |
+  rotate_psi_s:                      0.016     0.016   0.0% |
+Set symmetry:                        0.003     0.003   0.0% |
+Other:                               1.037     1.037   1.9% ||
+-----------------------------------------------------------
+Total:                                        54.612 100.0%
+
+Memory usage: 239.55 MiB
+Date: Fri Oct  6 12:51:30 2023

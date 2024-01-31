@@ -1,0 +1,21 @@
+#!/bin/bash -x
+#SBATCH --job-name=alpha_pcm
+#SBATCH --nodes=1
+#SBATCH --tasks-per-node=16
+#SBATCH --array=0-27
+#SBATCH --mem-per-cpu=800
+#SBATCH --time=03:00:00
+#SBATCH --mail-type=NONE
+
+export MODULEPATH=/opt/bwhpc/common/modulefiles/Compiler/intel/19.1.2:/home/fr/fr_fr/fr_ez1021/local/modulefiles:/opt/bwhpc/fr/modulefiles/Core:/opt/bwhpc/common/modulefiles/Core:/etc/modulefiles:/usr/share/modulefiles:/usr/share/modulefiles/Linux:/usr/share/modulefiles/Core:/usr/share/lmod/lmod/modulefiles/Core
+
+## GPAW from my GitLab branch
+module load py-gpaw
+
+export LD_PRELOAD=$MKLROOT/lib/intel64_lin/libmkl_def.so:$MKLROOT/lib/intel64_lin/libmkl_avx2.so:$MKLROOT/lib/intel64_lin/libmkl_core.so:$MKLROOT/lib/intel64_lin/libmkl_intel_lp64.so:$MKLROOT/lib/intel64_lin/libmkl_scalapack_lp64.so:$MKLROOT/lib/intel64_lin/libmkl_sequential.so:$MKLROOT/lib/intel64_lin/libmkl_blacs_intelmpi_lp64.so
+
+export GPAW_SETUP_PATH=/home/fr/fr_fr/fr_ez1021/source/gpaw-setups/gpaw-setups-0.9.20000
+
+cd $PWD
+
+mpiexec -np 16 gpaw python alpha_pcm.py $SLURM_ARRAY_TASK_ID
